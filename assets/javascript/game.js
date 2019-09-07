@@ -8,6 +8,9 @@ displayGuesses();
 setLetter();
 function displayGuesses() {
     document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
+    document.querySelector("#wins").innerHTML = wins;
+    document.querySelector("#losses").innerHTML = losses;
+    //document.querySelector("#userGuesses").innerHTML = userGuesses;
 }
 function setLetter() {
     compIndex = Math.floor(Math.random() * alphabet.length);
@@ -15,6 +18,9 @@ function setLetter() {
     console.log("comp choice " + compChoice);
 }
 document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
+document.querySelector("#wins").innerHTML = wins;
+document.querySelector("#losses").innerHTML = losses;
+//document.querySelector("#userGuesses").innerHTML = userGuesses;
 // console.log("comp index " + compIndex);
 // console.log("comp choice " + compChoice);
 document.onkeyup = function (event) {
@@ -23,14 +29,14 @@ document.onkeyup = function (event) {
     if (letter === compChoice) {
         wins++
         guessesRemaining = 9;
-        console.log("Num win " + wins);
+       // console.log("Num win " + wins);
         setLetter()
     } else {
         guessesRemaining--
         displayGuesses()
-        console.log("remaining lives " + guessesRemaining)
+        // console.log("remaining lives " + guessesRemaining)
         if (guessesRemaining === 0) {
-            console.log("You lose")
+           // console.log("You lose")
             losses++
             guessesRemaining = 9;
             setLetter()
